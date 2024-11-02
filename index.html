@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-CH">
+<head>
+    <title>3D Print Cost Calculator</title>
+    <meta name="mobile-web-app-title" content="3D Print Cost Calculator">
+    <meta name="apple-mobile-web-app-title" content="3D Print Cost Calculator">
+    <link rel="canonical" href="https://3d.michivonah.ch">
+    <meta charset="UTF-8">
+    <meta name="description" content="3D Print Cost Calculator">
+    <meta name="author" content="Michi von Ah">
+    <meta name="robots" content="noindex">
+    <meta http-equiv="expires" content="43200">
+
+    <meta property="og:title" content="3D Print Cost Calculator">
+    <meta property="og:description" content="3D Print Cost Calculator">
+    <meta property="og:url" content="https://3d.michivonah.ch/">
+    <meta property="og:site_name" content="3D Print Cost Calculator">
+    <meta property="twitter:title" content="3D Print Cost Calculatorh">
+    <meta property="twitter:description" content="3D Print Cost Calculator">
+    <meta name="twitter:site" content="@michivonah">
+    <meta name="twitter:creator" content="@michivonah">
+
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="main.js" defer></script>
+
+    <meta name="theme-color" content="#3498db">
+    <meta name="mobile-web-app-status-bar-style" content="#3498db">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3498db">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-capable" content="no"> 
+
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <div class="logo-section">
+                <img src="assets/logo.png">
+                <h1>3D Print<br>Cost Calculator</h1>
+            </div>
+            <div class="options-view">
+                <div class="options-input">
+                    <label for="input-project-name">Project Name</label>
+                    <input type="text" id="input-project-name" placeholder="Benchy">
+                </div>
+
+                <div class="options-input">
+                    <label for="input-printer-model">Printer Model</label>
+                    <input type="text" id="input-printer-model" placeholder="BambuLab A1 Combo">
+                </div>
+
+                <div class="options-input">
+                    <label for="input-total-filament-usage">Total Filament Usage</label>
+                    <input type="number" id="input-total-filament-usage" placeholder="300g">
+                </div>
+
+                <div class="options-input">
+                    <label for="input-print-duration">Print Duration</label>
+                    <input type="number" id="input-print-duration" placeholder="180 Min">
+                </div>
+
+                <div class="options-input">
+                    <label for="input-material-cost">Additional material cost</label>
+                    <input type="number" id="input-material-cost" placeholder="0.00 CHF">
+                </div>
+
+                <div class="options-input">
+                    <label for="input-shipping">Packaging & Shipping</label>
+                    <input type="number" id="input-shipping" placeholder="12.00 CHF">
+                </div>
+
+                <div class="options-input">
+                    <label for="input-labor-time">Labor Time</label>
+                    <input type="number" id="input-labor-time" placeholder="30 Min">
+                </div>
+
+                <div class="options-input">
+                    <label for="input-hourly-wage">Hourly Wage (Price)</label>
+                    <input type="number" id="input-hourly-wage" placeholder="20.00 CHF">
+                </div>
+
+                <div class="options-input">
+                    <label for="input-profit-margin">Margin</label>
+                    <input type="number" id="input-profit-margin" placeholder="50%">
+                </div>
+
+                <div class="options-input result">
+                    <label for="input-total-cost">Total Cost</label>
+                    <input type="number" id="input-total-cost" placeholder="27.45 CHF" disabled>
+                </div>
+            </div>
+            <div class="footer">
+                <p><a href="https://youtu.be/5koU93oZVC0">Credits pricing system</a></p>
+                <p><a href="https://legal.michivonah.ch">Legal</a> | by <a href="https://michivonah.ch">michivonah.ch</a> | 2024</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

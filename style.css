@@ -1,0 +1,111 @@
+/* Import Font & Icons */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=print');
+
+/* Stylings */
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    color: var(--primary);
+    background: var(--background);
+    --font: "Montserrat", sans-serif;
+    --primary: #2D4E6A;
+    --secondary: #E4F3FA;
+    --background: #BFE3F1;
+}
+
+/* Containers */
+.content{
+    margin: 0;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container{
+    width: 80%;
+    max-width: 550px;
+}
+
+/* Logo Stylings */
+.logo-section{
+    display: flex;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: center;
+}
+
+.logo-section img{
+    height: 90px;
+    user-select: none;
+}
+
+.logo-section h1{
+    padding: 0 30px;
+}
+
+/* Options */
+.options-view{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: stretch;
+    align-items: stretch;
+}
+
+.options-input{
+    padding: 5px 0px;
+}
+
+.options-input label{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.options-input input{
+    margin: 2px 0;
+    padding: 10px 10px;
+    background: var(--secondary);
+    border: 4px solid var(--primary);
+    border-radius: 12px;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--primary);
+    width: 100%;
+}
+
+/* Result box */
+.result input{
+    background: var(--primary);
+    color: var(--secondary);
+}
+
+/* Improve input styling */
+input::placeholder, textarea::placeholder{
+    color: inherit;
+    font-weight: 300;
+  }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Link stylings */
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover{
+    color: inherit;
+    text-decoration: underline;
+}
