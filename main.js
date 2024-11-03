@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function(){
     for (const field of fields){
         field.addEventListener('change', showResult);
     }
+
+    document.getElementById("input-total-cost").addEventListener('click', copyToClipboard);
 });
 
 // calculate cost
@@ -11,6 +13,8 @@ function calculateCost(){
     const bufferFactor = 1.1; // add buffer on top of filament usage
     const filamentPrice = 20; // price per 1kg spool
     const hourlyMachineCost = 0.15; // the machine cost per hour (used for maintenance/repair/energy)
+
+    const printerModel = document.getElementById("input-printer-model").value;
 
     const filamentUsage = parseFloat(document.getElementById("input-total-filament-usage").value || 0); // used filament in grams
     const printDuration = parseFloat(document.getElementById("input-print-duration").value || 0); // print duration in minutes
@@ -33,4 +37,19 @@ function showResult(){
 
     let resultField = document.getElementById("input-total-cost");
     resultField.value = `${calculateCost()} ${currencyIcon}`;
+}
+
+// Copy to clipboard
+function copyToClipboard(event){
+    const text = event.target.value;
+    const copyNotice = document.getElementById("copy-notice");
+
+    try{
+        navigator.clipboard.writeText(text);
+        copyNotice.classList.add("visible");
+        setTimeout(() => copyNotice.classList.remove("visible"), 2000);
+    }
+    catch(error){
+        console.log(`Got error while trying to copy to clipboard: ${error}`);
+    }
 }

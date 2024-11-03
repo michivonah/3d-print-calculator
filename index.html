@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="3D Print Cost Calculator">
     <meta name="author" content="Michi von Ah">
-    <meta name="robots" content="noindex">
+    <meta name="robots" content="index">
     <meta http-equiv="expires" content="43200">
 
     <meta property="og:title" content="3D Print Cost Calculator">
@@ -23,9 +23,9 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="main.js" defer></script>
 
-    <meta name="theme-color" content="#3498db">
-    <meta name="mobile-web-app-status-bar-style" content="#3498db">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#3498db">
+    <meta name="theme-color" content="#BFE3F1">
+    <meta name="mobile-web-app-status-bar-style" content="#BFE3F1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#BFE3F1">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="mobile-web-app-capable" content="no">
     <meta name="apple-mobile-web-app-capable" content="no"> 
@@ -46,7 +46,14 @@
 
                 <div class="options-input">
                     <label for="input-printer-model">Printer Model</label>
-                    <input type="text" id="input-printer-model" class="input-field" placeholder="BambuLab A1 Combo">
+                    <select name="input-printer-model" id="input-printer-model" class="input-field">
+                        <option value="other" selected disabled>Select printer model</option>
+                        <option value="bambulab-a1">BambuLab A1</option>
+                        <option value="bambulab-a1-combo">BambuLab A1 Combo</option>
+                        <option value="bambulab-p1s">BambuLab P1S</option>
+                        <option value="bambulab-p1s-combo">BambuLab P1S Combo</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
 
                 <div class="options-input">
@@ -86,7 +93,11 @@
 
                 <div class="options-input result">
                     <label for="input-total-cost">Total Cost</label>
-                    <input type="text" id="input-total-cost" placeholder="27.45 CHF" disabled>
+                    <span id="copy-notice" class="copy-notice">Copied to clipboard!</span>
+                    <span class="material-symbols-outlined copy-icon">
+                        content_copy
+                    </span>
+                    <input type="text" id="input-total-cost" placeholder="27.45 CHF" readonly>
                 </div>
             </div>
             <div class="footer">

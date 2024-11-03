@@ -1,6 +1,6 @@
 /* Import Font & Icons */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=print');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=content_copy');
 
 /* Stylings */
 html{
@@ -30,7 +30,7 @@ body{
 
 .container{
     width: 80%;
-    max-width: 550px;
+    max-width: 600px;
 }
 
 /* Logo Stylings */
@@ -61,6 +61,8 @@ body{
 
 .options-input{
     padding: 5px 0px;
+    position: relative;
+    display: inline-block;
 }
 
 .options-input label{
@@ -68,7 +70,8 @@ body{
     font-weight: bold;
 }
 
-.options-input input{
+.options-input input,
+.options-input select{
     margin: 2px 0;
     padding: 10px 10px;
     background: var(--secondary);
@@ -79,6 +82,7 @@ body{
     font-weight: bold;
     color: var(--primary);
     width: 100%;
+    box-sizing: border-box;
 }
 
 /* Result box */
@@ -87,8 +91,10 @@ body{
     color: var(--secondary);
 }
 
-/* Improve input styling */
-input::placeholder, textarea::placeholder{
+/* Improve input/select stylings */
+input::placeholder,
+textarea::placeholder,
+select option:disabled{
     color: inherit;
     font-weight: 300;
   }
@@ -97,6 +103,36 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Copy Clipboard Notice */
+.copy-notice, .copy-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    color: var(--secondary);
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.copy-notice.visible {
+    opacity: 1;
+}
+
+.options-input:hover .copy-icon {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.copy-notice.visible ~ .copy-icon {
+    opacity: 0;
 }
 
 /* Link stylings */
@@ -108,4 +144,12 @@ a{
 a:hover{
     color: inherit;
     text-decoration: underline;
+}
+
+/* Print view */
+@media print{
+    .result input{
+        background: var(--primary) !important;
+        color: var(--secondary) !important;
+    }
 }
