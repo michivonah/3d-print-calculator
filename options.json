@@ -1,0 +1,100 @@
+{
+    "filamentBufferFactor":1.1,
+    "machineCostBufferFactor":1.3,
+    "energyPriceKwh":32.66,
+    "currencyIcon":"CHF",
+    "filamentPrices":[
+        {
+            "type":"PLA",
+            "spoolPrice":20.00
+        },
+        {
+            "type":"PETG",
+            "spoolPrice":20.00
+        },
+        {
+            "type":"ABS",
+            "spoolPrice":22.00
+        },
+        {
+            "type":"PC",
+            "spoolPrice":35.00
+        },
+        {
+            "type":"TPU",
+            "spoolPrice":36.00
+        }
+    ],
+    "printerModels":[
+        {
+            "id":"bambulab-a1-mini",
+            "name":"BambuLab A1 Mini",
+            "brand":"BambuLab",
+            "price":270,
+            "hourlyMachineCost":0.029
+        },
+        {
+            "id":"bambulab-a1-mini-combo",
+            "name":"BambuLab A1 Mini Combo",
+            "brand":"BambuLab",
+            "price":410,
+            "hourlyMachineCost":0.044
+        },
+        {
+            "id":"bambulab-a1",
+            "name":"BambuLab A1",
+            "brand":"BambuLab",
+            "price":360,
+            "hourlyMachineCost":0.038
+        },
+        {
+            "id":"bambulab-a1-combo",
+            "name":"BambuLab A1 Combo",
+            "brand":"BambuLab",
+            "price":500,
+            "hourlyMachineCost":0.053
+        },
+        {
+            "id":"bambulab-p1p",
+            "name":"BambuLab P1P",
+            "brand":"BambuLab",
+            "price":660,
+            "hourlyMachineCost":0.070
+        },
+        {
+            "id":"bambulab-p1s",
+            "name":"BambuLab P1S",
+            "brand":"BambuLab",
+            "price":630,
+            "hourlyMachineCost":0.067
+        },
+        {
+            "id":"bambulab-p1s-combo",
+            "name":"BambuLab P1S Combo",
+            "brand":"BambuLab",
+            "price":840,
+            "hourlyMachineCost":0.089
+        },
+        {
+            "id":"bambulab-x1c",
+            "name":"BambuLab X1C",
+            "brand":"BambuLab",
+            "price":1130,
+            "hourlyMachineCost":0.120
+        },
+        {
+            "id":"bambulab-x1c-combo",
+            "name":"BambuLab X1C Combo",
+            "brand":"BambuLab",
+            "price":1370,
+            "hourlyMachineCost":0.146
+        },
+        {
+            "id":"other",
+            "name":"Other",
+            "brand":"Other",
+            "price":1000,
+            "hourlyMachineCost":0.15
+        }
+    ]
+}
