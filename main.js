@@ -1,20 +1,38 @@
 // add auto calculate on update
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', async function(){
     let fields = document.getElementsByClassName('input-field');
     for (const field of fields){
         field.addEventListener('change', showResult);
     }
 
     document.getElementById("input-total-cost").addEventListener('click', copyToClipboard);
+
+    await loadPrinterModels();
 });
 
-// calculate cost
-function calculateCost(){
-    const bufferFactor = 1.1; // add buffer on top of filament usage
-    const filamentPrice = 20; // price per 1kg spool
-    const hourlyMachineCost = 0.15; // the machine cost per hour (used for maintenance/repair/energy)
+// load settings from json
+async function loadSettings(path = "options.json"){
+    try{
+        const response = await fetch(path);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const settings = await response.json();
+        return settings;
+    }
+    catch(error){
+        console.log(`Got error while trying to load the configuration data: ${error}`);
+        return {"message":"error"};
+    }
+}
 
-    const printerModel = document.getElementById("input-printer-model").value;
+// calculate cost
+async function calculateCost(){
+    const settings = await loadSettings();
+    const bufferFactor = settings.filamentBufferFactor; // add buffer on top of filament usage
+    const filamentPrice = settings.filamentPrices["PLA"].spoolPrice; // price per 1kg spool
+    const printerModel = document.getElementById("input-printer-model").value || other; // the selected printer model
+    const hourlyMachineCost = settings.printerModels[printerModel].hourlyMachineCost; // the machine cost per hour (used for maintenance/repair/energy)
 
     const filamentUsage = parseFloat(document.getElementById("input-total-filament-usage").value || 0); // used filament in grams
     const printDuration = parseFloat(document.getElementById("input-print-duration").value || 0); // print duration in minutes
@@ -31,12 +49,27 @@ function calculateCost(){
     return round;
 }
 
+// load printers into select field
+async function loadPrinterModels(){
+    const settings = await loadSettings();
+    const printerModels = settings.printerModels;
+    const printerSelect = document.getElementById('input-printer-model');
+
+    for (const [id, model] of Object.entries(printerModels)){
+        const option = document.createElement('option');
+        option.value = id;
+        option.textContent = model.name;
+        printerSelect.appendChild(option);
+    }
+}
+
 // show cost from calculation
-function showResult(){
-    const currencyIcon = "CHF"; // the icon of your currency
+async function showResult(){
+    const settings = await loadSettings();
+    const currencyIcon = settings.currencyIcon; // the icon of your currency
 
     let resultField = document.getElementById("input-total-cost");
-    resultField.value = `${calculateCost()} ${currencyIcon}`;
+    resultField.value = `${await calculateCost()} ${currencyIcon}`;
 }
 
 // Copy to clipboard
