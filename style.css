@@ -50,6 +50,17 @@ body{
     padding: 0 30px;
 }
 
+/* Instructions */
+.instructions h2{
+    margin: 10px 0;
+    padding: 0;
+}
+
+.instructions p{
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
 /* Options */
 .options-view{
     display: flex;
@@ -148,8 +159,19 @@ a:hover{
 
 /* Print view */
 @media print{
+    .instructions,
+    .footer{
+        display: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder{
+        color: transparent;
+    }
+
+    input:read-only,
     .result input{
-        background: var(--primary) !important;
-        color: var(--secondary) !important;
+        color: #2D4E6A !important;
+        print-color-adjust: exact;
     }
 }

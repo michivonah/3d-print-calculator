@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', async function(){
     let fields = document.getElementsByClassName('input-field');
     for (const field of fields){
-        field.addEventListener('change', showResult);
+        field.addEventListener('keyup', showResult);
     }
 
     document.getElementById("input-total-cost").addEventListener('click', copyToClipboard);
