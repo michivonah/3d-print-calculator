@@ -1,13 +1,18 @@
 // add auto calculate on update
 document.addEventListener('DOMContentLoaded', async function(){
+    await loadPrinterModels();
+
     let fields = document.getElementsByClassName('input-field');
     for (const field of fields){
+        if(localStorage.getItem(field.id)){
+            field.value = localStorage.getItem(field.id);
+            showResult();
+        }
         field.addEventListener('keyup', showResult);
+        field.addEventListener('change', saveValue);
     }
 
     document.getElementById("input-total-cost").addEventListener('click', copyToClipboard);
-
-    await loadPrinterModels();
 });
 
 // load settings from json
@@ -70,6 +75,12 @@ async function showResult(){
 
     let resultField = document.getElementById("input-total-cost");
     resultField.value = `${await calculateCost()} ${currencyIcon}`;
+}
+
+// Save values to localStorage
+async function saveValue(event){
+    const field = event.target;
+    localStorage.setItem(field.id, field.value);
 }
 
 // Copy to clipboard
